@@ -4,15 +4,15 @@
 
 package:
   name: {{ name|lower }}
-  version: {{ version }}
+  version: "{{ version }}"
 
 source:
   url: https://cpan.metacpan.org/authors/id/M/MI/MITHUN/URI-Encode-v{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 0
-  skip: true  # [win]
+  noarch: generic
+  number: 1
   run_exports:
     weak:
       - {{ name }} ={{ version }}
@@ -37,9 +37,7 @@ about:
   description: |
     This modules provides simple URI (Percent) encoding/decoding. The main purpose of this module (at least for me) was to provide an easy method to encode strings (mainly URLs) into a format which can be pasted into a plain text emails, and that those links are 'click-able' by the person reading that email. This can be accomplished by NOT encoding the reserved characters.
   license: GPL-1.0-or-later OR Artistic-1.0-Perl
-  license_file:
-    - {{ environ["PREFIX"] }}/man/man1/perlartistic.1
-    - {{ environ["PREFIX"] }}/man/man1/perlgpl.1
+  license_file: LICENSE
   dev_url: https://github.com/mithun/perl-uri-encode
 
 extra:
